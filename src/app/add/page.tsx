@@ -10,7 +10,6 @@ import {
   ChevronRight,
   Star
 } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
 import { mockFavoriteActions } from "@/lib/mockData";
 
 const actionTypes = [
@@ -24,55 +23,56 @@ const actionTypes = [
 
 export default function AddTransactionPage() {
   return (
-    <div className="space-y-6 pb-10">
-      <div>
-        <h2 className="text-2xl font-bold text-slate-900">เพิ่มรายการ</h2>
-        <p className="text-sm text-slate-500 font-medium mt-1">บันทึกกิจกรรมในสวนของคุณ</p>
+    <div className="flex flex-col gap-6 pb-20 mt-2">
+      <div className="px-2">
+        <h2 className="text-[22px] font-bold text-slate-900 tracking-tight">เพิ่มรายการ</h2>
+        <p className="text-sm font-medium text-slate-500 mt-1">บันทึกกิจกรรมในสวนของคุณ</p>
       </div>
 
       {/* Main Grid Actions */}
-      <div className="grid grid-cols-1 gap-3">
+      <div className="flex flex-col gap-3">
         {actionTypes.map((action) => {
           const Icon = action.icon;
           return (
-            <Card key={action.id} className="hover:border-primary-200 transition-colors cursor-pointer group">
-              <CardContent className="p-4 flex items-center justify-between">
-                <div className="flex items-center gap-4">
-                  <div className={`w-12 h-12 rounded-2xl flex items-center justify-center ${action.color}`}>
-                    <Icon className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <h3 className="text-base font-bold text-slate-900">{action.label}</h3>
-                    <p className="text-[11px] text-slate-500 font-medium">{action.sub}</p>
-                  </div>
+            <div 
+              key={action.id} 
+              className="bg-white rounded-[20px] border border-slate-100 p-[18px] flex items-center justify-between active:scale-[0.98] transition-transform cursor-pointer"
+            >
+              <div className="flex items-center gap-4">
+                <div className={`w-[48px] h-[48px] rounded-2xl flex items-center justify-center ${action.color}`}>
+                  <Icon className="w-6 h-6" strokeWidth={2.5} />
                 </div>
-                <ChevronRight className="w-5 h-5 text-slate-300 group-hover:text-primary-500 transition-colors" />
-              </CardContent>
-            </Card>
+                <div className="flex flex-col gap-0.5">
+                  <h3 className="text-base font-bold text-slate-900">{action.label}</h3>
+                  <p className="text-[12px] font-medium text-slate-500">{action.sub}</p>
+                </div>
+              </div>
+              <ChevronRight className="w-5 h-5 text-slate-300" />
+            </div>
           );
         })}
       </div>
 
       {/* Favorite Actions Section */}
-      <section className="space-y-3 mt-8">
+      <section className="space-y-4 mt-6 px-2">
         <h3 className="text-lg font-bold text-slate-900 flex items-center gap-2">
-          <Star className="w-5 h-5 text-secondary-500 fill-secondary-500" /> รายการโปรด
+          <Star className="w-5 h-5 text-[#f97316] fill-[#f97316]" /> รายการโปรด
         </h3>
-        <div className="flex gap-3 overflow-x-auto pb-2 -mx-4 px-4 scrollbar-hide">
+        <div className="flex gap-3 overflow-x-auto pb-4 -mx-6 px-6 scrollbar-hide">
           {mockFavoriteActions.map((action, i) => (
             <button 
               key={i}
-              className="min-w-[140px] flex flex-col gap-2 p-4 bg-white border border-slate-100 rounded-2xl shadow-sm hover:shadow-md transition-shadow text-left"
+              className="min-w-[140px] flex flex-col gap-3 p-4 bg-white border border-slate-100 rounded-[20px] shadow-sm active:scale-[0.98] transition-transform text-left"
             >
-              <div className="w-8 h-8 bg-slate-50 text-slate-400 rounded-lg flex items-center justify-center">
-                <Star className="w-4 h-4" />
+              <div className="w-10 h-10 bg-slate-50 text-slate-400 rounded-xl flex items-center justify-center">
+                <Star className="w-5 h-5" />
               </div>
-              <span className="text-xs font-bold text-slate-800">{action.label}</span>
+              <span className="text-sm font-bold text-slate-800">{action.label}</span>
             </button>
           ))}
-          <button className="min-w-[140px] flex flex-col items-center justify-center gap-2 p-4 bg-slate-50 border border-dashed border-slate-200 rounded-2xl text-slate-400">
+          <button className="min-w-[140px] flex flex-col items-center justify-center gap-2 p-4 bg-slate-50 border border-dashed border-slate-200 rounded-[20px] text-slate-400 active:scale-[0.98] transition-transform">
             <PlusIcon className="w-6 h-6" />
-            <span className="text-[10px] font-bold">เพิ่มรายการโปรด</span>
+            <span className="text-xs font-bold">เพิ่มรายการโปรด</span>
           </button>
         </div>
       </section>
