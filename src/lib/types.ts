@@ -1,5 +1,12 @@
 export type ZoneType = "plant" | "animal" | "building" | "water" | "empty" | "tourism";
 
+export interface RecentActivity {
+  id: string;
+  type: string;
+  title: string;
+  date: string;
+}
+
 export interface Zone {
   id: string;
   name: string;
@@ -7,6 +14,9 @@ export interface Zone {
   areaRai: number;
   color: string;
   description?: string;
+  plantCount?: number;
+  animalCount?: number;
+  recentActivities?: RecentActivity[];
 }
 
 export interface Land {

@@ -16,15 +16,19 @@ export const metadata: Metadata = {
   description: "Modern farm and land management system",
 };
 
+import { TooltipProvider } from "@/components/ui/tooltip";
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="th" className={cn(inter.variable, "font-sans", geist.variable)}>
+    <html lang="th" className={`${inter.variable}`}>
       <body className="antialiased font-sans">
-        <AppLayout>{children}</AppLayout>
+        <TooltipProvider>
+          <AppLayout>{children}</AppLayout>
+        </TooltipProvider>
       </body>
     </html>
   );

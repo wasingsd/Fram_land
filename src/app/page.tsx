@@ -68,7 +68,7 @@ export default function Dashboard() {
         </div>
         <div className="space-y-2">
           {mockTransactions.slice(0, 3).map((tx) => (
-            <Card key={tx.id} variant="default" className="border-slate-50">
+            <Card key={tx.id} className="border-slate-50">
               <CardContent className="p-3 flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${
