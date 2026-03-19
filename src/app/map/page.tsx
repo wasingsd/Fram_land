@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { MapHeader } from "@/components/map/MapHeader";
 import { MapCanvas } from "@/components/map/MapCanvas";
 import { FloatingControls } from "@/components/map/FloatingControls";
 import { ZoneBottomSheet } from "@/components/map/ZoneBottomSheet";
@@ -21,9 +20,6 @@ export default function MapPage() {
 
   return (
     <div className="flex flex-col h-full -mt-4 -mx-4 overflow-hidden bg-slate-50">
-      {/* 1. Top App Bar */}
-      <MapHeader />
-
       <div className="flex-1 relative">
         {/* 2. Map Canvas */}
         <MapCanvas 
